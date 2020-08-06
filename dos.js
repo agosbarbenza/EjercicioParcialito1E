@@ -31,7 +31,19 @@ function mostrar() {
 
 		let precio = parseFloat(prompt("Ingrese un precio"));
 
+		if(bandera == 0){
+			precioMax = precio;
+		}
+
+		bandera = 1;
+
+		if(precio>precioMax){
+			precioMax = precio;
+		}
+
 		resp = prompt("Desea ingresar otro artículo? si/no");
 	} while (resp == "si");
+
+	console.log("El precio máximo fue "+precioMax);
 
 }
