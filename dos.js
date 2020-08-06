@@ -29,7 +29,11 @@ function mostrar() {
 
 		}
 
-		let precio = parseFloat(prompt("Ingrese un precio"));
+		let precio = parseFloat(prompt("Ingrese el precio"));
+		while(!(precio>=0 && precio<= 1000)){
+			alert("Precio inválido");
+			precio = parseFloat(prompt("Ingrese el precio"));
+		}
 
 		if(bandera == 0){
 			precioMax = precio;
