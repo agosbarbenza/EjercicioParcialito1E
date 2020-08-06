@@ -19,6 +19,9 @@ function mostrar() {
 	let precioMax;
 	let resp
 	let bandera = 0;
+	let articuloMax;
+	let articuloLacteo;
+	let contadorBebidas = 0;
 
 	do {
 		articulo = prompt("Ingrese el nombre de un artículo");
@@ -29,7 +32,7 @@ function mostrar() {
 
 		}
 
-		let precio = parseFloat(prompt("Ingrese el precio"));
+		precio = parseFloat(prompt("Ingrese el precio"));
 		while(!(precio>=0 && precio<= 1000)){
 			alert("Precio inválido");
 			precio = parseFloat(prompt("Ingrese el precio"));
@@ -43,11 +46,22 @@ function mostrar() {
 
 		if(precio>precioMax){
 			precioMax = precio;
+			articuloMax = articulo;
+			if(categoria == "lacteos"){
+				articuloLacteo = articulo;
+			}
 		}
 
+		if(categoria == "bebidas"){
+			contadorBebidas++;
+		}
+
+
 		resp = prompt("Desea ingresar otro artículo? si/no");
+		
 	} while (resp == "si");
 
-	console.log("El precio máximo fue "+precioMax);
+
+	console.log("El artículo "+articuloMax+" fue el de mayor precio, siendo este $"+precioMax+"\n"+"El artículo lacteo de mayor precio fue "+articuloLacteo+"\n"+"La cantidad de bebidas ingresadas fue de "+contadorBebidas);
 
 }
