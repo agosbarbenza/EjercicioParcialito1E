@@ -33,35 +33,35 @@ function mostrar() {
 		}
 
 		precio = parseFloat(prompt("Ingrese el precio"));
-		while(!(precio>=0 && precio<= 1000)){
+		while (!(precio >= 0 && precio <= 1000)) {
 			alert("Precio inválido");
 			precio = parseFloat(prompt("Ingrese el precio"));
 		}
 
-		if(bandera == 0){
+		if (bandera == 0) {
 			precioMax = precio;
 		}
 
 		bandera = 1;
 
-		if(precio>precioMax){
+		if (precio > precioMax) {
 			precioMax = precio;
 			articuloMax = articulo;
-			if(categoria == "lacteos"){
+			if (categoria == "lacteos") {
 				articuloLacteo = articulo;
 			}
 		}
 
-		if(categoria == "bebidas"){
+		if (categoria == "bebidas") {
 			contadorBebidas++;
 		}
 
 
 		resp = prompt("Desea ingresar otro artículo? si/no");
-		
+
 	} while (resp == "si");
 
 
-	console.log("El artículo "+articuloMax+" fue el de mayor precio, siendo este $"+precioMax+"\n"+"El artículo lacteo de mayor precio fue "+articuloLacteo+"\n"+"La cantidad de bebidas ingresadas fue de "+contadorBebidas);
+	console.log("El artículo " + articuloMax + " fue el de mayor precio, siendo este $" + precioMax + "\n" + "El artículo lacteo de mayor precio fue " + articuloLacteo + "\n" + "La cantidad de bebidas ingresadas fue de " + contadorBebidas);
 
 }
