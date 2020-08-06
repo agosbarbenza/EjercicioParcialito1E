@@ -11,23 +11,27 @@ Considerar que las categorías pueden ser: almacen, lácteos, limpieza o bebidas
 */
 
 
-function mostrar()
-{
-	let articulo;
-	let categoria;
-	let precio;
+function mostrar() {
+
+	let articulo
+	let categoria
+	let precio
 	let precioMax;
-	let precioMin;
-	let respuesta;
-	do{
-		articulo = prompt("Ingrese el nombre de un artículo de la categoría almacen, lacteos, limpieza o bebidas");
-		categoria = prompt("Ingrese la categoría de su artículo (almacen, lacteos, limpieza o bebida");
-		precio = parseFloat(prompt("Ingrese el precio del artículo"));
+	let resp
+	let bandera = 0;
 
-		precioMax = precio;
-		respuesta = prompt("Desea ingresar otro articulo? si/no");
+	do {
+		articulo = prompt("Ingrese el nombre de un artículo");
+		categoria = prompt("Ingrese una categoría")
+		while (categoria != "lacteos" && categoria != "limpieza" && categoria != "almacen" && categoria != "bebidas") {
+			alert("Categoría invalida");
+			categoria = prompt("Ingrese una categoría")
 
-	}while(respuesta == "si");
+		}
 
+		let precio = parseFloat(prompt("Ingrese un precio"));
+
+		resp = prompt("Desea ingresar otro artículo? si/no");
+	} while (resp == "si");
 
 }
