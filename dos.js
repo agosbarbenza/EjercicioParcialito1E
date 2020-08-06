@@ -11,6 +11,7 @@ Considerar que las categorías pueden ser: almacen, lácteos, limpieza o bebidas
 */
 
 
+
 function mostrar() {
 
 	let articulo
@@ -18,9 +19,11 @@ function mostrar() {
 	let precio
 	let precioMax;
 	let resp
-	let bandera = 0;
+	let bandera1 = 0;
+	let bandera2 = 0;
 	let articuloMax;
 	let articuloLacteo;
+	let precioLacteo;
 	let contadorBebidas = 0;
 
 	do {
@@ -33,35 +36,49 @@ function mostrar() {
 		}
 
 		precio = parseFloat(prompt("Ingrese el precio"));
-		while (!(precio >= 0 && precio <= 1000)) {
+		while(!(precio>=0 && precio<= 1000)){
 			alert("Precio inválido");
 			precio = parseFloat(prompt("Ingrese el precio"));
 		}
 
-		if (bandera == 0) {
-			precioMax = precio;
-		}
-
-		bandera = 1;
-
-		if (precio > precioMax) {
+		if(bandera1 == 0){
 			precioMax = precio;
 			articuloMax = articulo;
-			if (categoria == "lacteos") {
-				articuloLacteo = articulo;
-			}
+
 		}
 
-		if (categoria == "bebidas") {
+		bandera1 = 1;
+
+		if(precio>precioMax){
+			precioMax = precio;
+			articuloMax = articulo;
+		}
+
+		//Averiguar categoría lacteos
+		
+		if(categoria == "lacteos"){
+				if(bandera2 == 0){
+				precioLacteo = precio;
+				articuloLacteo = articulo;
+				}
+
+				bandera2= 1;
+				if(precio>precioLacteo){
+					precioLacteo = precio;
+					articuloLacteo = articulo;	
+				}
+			}
+
+		if(categoria == "bebidas"){
 			contadorBebidas++;
 		}
 
 
 		resp = prompt("Desea ingresar otro artículo? si/no");
-
+		
 	} while (resp == "si");
 
 
-	console.log("El artículo " + articuloMax + " fue el de mayor precio, siendo este $" + precioMax + "\n" + "El artículo lacteo de mayor precio fue " + articuloLacteo + "\n" + "La cantidad de bebidas ingresadas fue de " + contadorBebidas);
+	console.log("El artículo "+articuloMax+" fue el de mayor precio, siendo este $"+precioMax+"\n"+"El artículo lacteo de mayor precio fue "+articuloLacteo+"\n"+"La cantidad de bebidas ingresadas fue de "+contadorBebidas);
 
 }
